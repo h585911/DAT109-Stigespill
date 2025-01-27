@@ -19,6 +19,8 @@ import javax.swing.border.EmptyBorder;
 
 public class Stigespill extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+
 	public Stigespill(List<Spiller> spillere) {
 		setTitle("Stigespill");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

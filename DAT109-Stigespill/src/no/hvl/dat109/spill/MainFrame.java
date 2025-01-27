@@ -17,6 +17,7 @@ import no.hvl.dat109.utils.InputListener;
 
 public class MainFrame extends JFrame {
 
+	private static final long serialVersionUID = 281280578361421973L;
 	private JTextField spiller1Field;
 	private JTextField spiller2Field;
 	private JTextField spiller3Field;
@@ -25,7 +26,7 @@ public class MainFrame extends JFrame {
 	private List<Spiller> spillere;
 	
 	public MainFrame() {
-		setTitle("Stigespill");
+		setTitle("Stigespill Start Frame");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
         setLayout(new BorderLayout());
