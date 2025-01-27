@@ -1,31 +1,49 @@
 package no.hvl.dat109.spill;
 
-import java.util.Arrays;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 
-public class Brett {
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Brett extends JPanel {
 	
-	// 10x10 grid
-	private Rute[][] brett = new Rute[10][10];
+	private static final long serialVersionUID = 1L;
+	private final Rute[][] ruter;
 	
-	public Brett(Rute[][] brett) {
-		super();
-		this.setBrett(brett);
+	public Brett() {
+		
+		setLayout(new GridLayout(10, 10));
+		setPreferredSize(new Dimension(600, 600));
+		setBorder(new EmptyBorder(10, 10, 10, 10));
+		
+		int[][] grid = new int[10][10];
+		int teller = 100;
+		
+		for (int rad = 0; rad < 10; rad++) {
+			if (rad % 2 == 0) {
+				for (int kol = 0; kol < 10; kol++) {
+					grid[rad][kol] = teller--;
+				}
+			} else {
+				for (int kol = 9; kol >= 0; kol--) {
+					grid[rad][kol] = teller--;
+				}
+			}
+		}
+		
+		ruter = new Rute[10][10];
+		
+		for (int rad = 0; rad < 10; rad++) {
+			for (int kol = 0; kol < 10; kol++) {
+				ruter[rad][kol] = new Rute(grid[rad][kol]);
+				add(ruter[rad][kol]);
+			}
+		}
 	}
 	
-	public Rute finnRute(Rute plass, Terning terning) {
-		return plass;
+	public Rute getRute(int row, int col) {
+		return ruter[row][col];
 	}
-
-	public Rute[][] getBrett() {
-		return brett;
-	}
-
-	public void setBrett(Rute[][] brett) {
-		this.brett = brett;
-	}
-
-	@Override
-	public String toString() {
-		return "Brett [brett=" + Arrays.toString(brett) + "]";
-	}
+	
 }

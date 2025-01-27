@@ -4,12 +4,17 @@ public class Spiller {
 	
 	private String navn;
 	private Brikke brikke;
-	private Terning terning;
+	private boolean kanKasteTerning;
+	private int posisjon;
 	
-	public Spiller(String navn, Brikke brikke, Terning terning) {
+	//private Terning terning;
+	
+	public Spiller(String navn, Brikke brikke) {
 		this.navn = navn;
 		this.brikke = brikke;
-		this.terning = terning;
+		this.kanKasteTerning = false;
+		this.posisjon = 0;
+		//this.terning = terning;
 	}
 
 	public String getNavn() {
@@ -27,14 +32,30 @@ public class Spiller {
 	public void setBrikke(Brikke brikke) {
 		this.brikke = brikke;
 	}
+	
+	public boolean kanKasteTerning() {
+		return kanKasteTerning;
+	}
+	
+	public void setKanKasteTerning(boolean kanKasteTerning) {
+		this.kanKasteTerning = kanKasteTerning;
+	}
+	
+	public int getPosisjon() {
+		return posisjon;
+	}
+	
+	public void setPosisjon(int posisjon) {
+		this.posisjon = posisjon;
+	}
 
-	public Terning getTerning() {
+	/*public Terning getTerning() {
 		return terning;
 	}
 
 	public void setTerning(Terning terning) {
 		this.terning = terning;
-	}
+	}*/
 	
 	/**
 	 * 
@@ -45,6 +66,8 @@ public class Spiller {
 
 	@Override
 	public String toString() {
-		return "Spiller [navn=" + navn + ", brikke=" + brikke + ", terning=" + terning + "]";
+		return "Spiller [navn=" + navn + ", brikke=" + brikke + ", posisjon=" + posisjon + "]";
+
+		//return "Spiller [navn=" + navn + ", brikke=" + brikke + ", terning=" + terning + "]";
 	}
 }

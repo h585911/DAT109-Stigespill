@@ -4,7 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -97,18 +100,21 @@ public class MainFrame extends JFrame {
 	private void startSpill() {
 		
 		spillere.clear();
+		Random random = new Random();
+		String[] farger = {"Red", "Blue", "Green", "Yellow"};
+		Set<String> brukteFarger = new HashSet<>();
 		
 		if (!spiller1Field.getText().trim().isEmpty()) {
-			spillere.add(lagSpiller(spiller1Field.getText().trim(), null, null));
+			spillere.add(lagSpiller(spiller1Field.getText().trim(), farger, random, brukteFarger));
 		}
 		if (!spiller2Field.getText().trim().isEmpty()) {
-			spillere.add(lagSpiller(spiller2Field.getText().trim(), null, null));
+			spillere.add(lagSpiller(spiller2Field.getText().trim(), farger, random, brukteFarger));
 		}
 		if (!spiller3Field.getText().trim().isEmpty()) {
-			spillere.add(lagSpiller(spiller3Field.getText().trim(), null, null));
+			spillere.add(lagSpiller(spiller3Field.getText().trim(), farger, random, brukteFarger));
 		}
 		if (!spiller4Field.getText().trim().isEmpty()) {
-			spillere.add(lagSpiller(spiller4Field.getText().trim(), null, null));
+			spillere.add(lagSpiller(spiller4Field.getText().trim(), farger, random, brukteFarger));
 		}
 		
 		System.out.println("Starter spillet med spillere:");
@@ -121,9 +127,18 @@ public class MainFrame extends JFrame {
 		
 	}
 	
-	private Spiller lagSpiller(String navn, Brikke brikke, Terning terning) {
-		Spiller spiller = new Spiller(navn, new Brikke(navn), terning);
-		System.out.println("Assigned to " + navn);
+	private Spiller lagSpiller(String navn, String[] farger, Random random, Set<String> brukteFarger) {
+		String farge;
+		
+		do {
+			farge = farger[random.nextInt(farger.length)];
+		} while (brukteFarger.contains(farge));
+		brukteFarger.add(farge);
+		
+		Brikke brikke = new Brikke(farge);
+		Spiller spiller = new Spiller(navn, brikke);
+		System.out.println("Spiller " + spiller + " har brikke: " + brikke);
+		
 		return spiller;
 	}
 	

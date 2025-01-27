@@ -3,6 +3,25 @@ package no.hvl.dat109.spill;
 public class Brikke {
 	
 	private String farge;
+	
+	public Brikke(String farge) {
+		this.farge = farge;
+	}
+	
+	public String getFarge() {
+		return farge;
+	}
+	
+	public void setFarge(String farge) {
+		this.farge = farge;
+	}
+	
+	@Override
+	public String toString() {
+		return "Brikke{ " + "farge='" + farge + '\'' + " }";
+	}
+	
+	/*private String farge;
 	private Rute rute;
 
 	public Brikke(String farge) {
@@ -29,5 +48,5 @@ public class Brikke {
 	@Override
 	public String toString() {
 		return "Brikke [farge=" + farge + ", rute=" + rute + "]";
-	}
+	}*/
 }

@@ -1,31 +1,28 @@
 package no.hvl.dat109.spill;
 
-public class Rute {
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+public class Rute extends JPanel {
 	
-	private int rute;
+	private static final long serialVersionUID = 1L;
+	private final int rute;
 	
 	public Rute(int rute) {
 		this.rute = rute;
+		setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		setBackground(Color.WHITE);
+		
+		JLabel label = new JLabel(String.valueOf(rute), SwingConstants.NORTH_EAST);
+		add(label);
 	}
-
+	
 	public int getRute() {
 		return rute;
 	}
-
-	public void setRute(int rute) {
-		this.rute = rute;
-	}
 	
-	public boolean sjekkSlange() {
-		return false;
-	}
-	
-	public boolean sjekkStige() {
-		return false;
-	}
-
-	@Override
-	public String toString() {
-		return "Rute [rute=" + rute + "]";
-	}	
 }
