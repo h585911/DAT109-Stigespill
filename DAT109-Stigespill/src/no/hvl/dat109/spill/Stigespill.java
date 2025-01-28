@@ -28,6 +28,8 @@ public class Stigespill extends JFrame {
 			System.out.println("Spiller " + spillere.get(0).getNavn() + " har prioritet, og kan kaste terning.");
 		}
 		
+		// Test
+		
 		// Brett panel
 		Brett brett = new Brett();
 		add(brett, BorderLayout.CENTER);
