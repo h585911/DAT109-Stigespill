@@ -13,8 +13,12 @@ import jakarta.persistence.Embeddable;
 public class Rute extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
-	private final int rute;
+	private int rute;
 	
+	public Rute() {
+		super();
+	}
+
 	public Rute(int rute) {
 		this.rute = rute;
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));

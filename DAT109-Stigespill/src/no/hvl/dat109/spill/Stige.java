@@ -25,6 +25,11 @@ public class Stige {
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
 	
+	
+	public Stige() {
+		super();
+	}
+
 	public Stige(int id, Rute startPos, Rute sluttPos) {
 		this.id = id;
 		this.startPos = startPos;

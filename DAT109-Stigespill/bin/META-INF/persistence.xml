@@ -7,6 +7,7 @@
 	<persistence-unit name="slangespillPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 
 		<class>no.hvl.dat109.spill.Slange</class>
+		<class>no.hvl.dat109.spill.Stige</class>
 
 		<properties>
 			<!--  Generelle JPA properties -->

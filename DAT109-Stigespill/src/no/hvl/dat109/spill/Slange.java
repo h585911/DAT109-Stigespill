@@ -25,6 +25,11 @@ public class Slange {
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
 	
+	
+	public Slange() {
+		super();
+	}
+
 	public Slange(int id, Rute startPos, Rute sluttPos) {
 		this.id = id;
 		this.startPos = startPos;
