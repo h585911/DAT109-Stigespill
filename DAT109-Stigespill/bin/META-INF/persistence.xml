@@ -12,8 +12,8 @@
 		<properties>
 		    <!--  Generelle JPA properties -->
 			<property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://129.151.221.119:5432/678154"/>
-			<property name="jakarta.persistence.jdbc.user" value="678154"/>
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://129.151.221.119:5432/h678154"/>
+			<property name="jakarta.persistence.jdbc.user" value="h678154"/>
 			<property name="jakarta.persistence.jdbc.password" value="pass"/>
 			
 			<!--  EclipseLink properties -->
