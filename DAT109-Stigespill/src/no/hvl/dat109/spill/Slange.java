@@ -1,9 +1,28 @@
 package no.hvl.dat109.spill;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Slange")
 public class Slange {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Embedded
+    @AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	private Rute startPos;
+	
+	@Embedded
+	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
 	
 	public Slange(int id, Rute startPos, Rute sluttPos) {
