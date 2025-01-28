@@ -31,5 +31,12 @@ public class Rute extends JPanel {
 	public int getRute() {
 		return rute;
 	}
+
+	@Override
+	public String toString() {
+		return "[rute=" + rute + "]";
+	}
+	
+	
 	
 }

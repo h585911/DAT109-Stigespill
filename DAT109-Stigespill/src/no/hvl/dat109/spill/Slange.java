@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Slange")
+@Table(schema = "stigespill")
 public class Slange {
 	
 	@Id
