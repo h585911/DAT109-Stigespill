@@ -55,7 +55,7 @@ public class SpillerListe extends JPanel {
 		
 		add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		// TODO: KOFFOR FUNKE DA IKKJE Å RENDRA SIRKELEN (FARGE) VED SIDEN AV NAVNET????! SATANS DRIT
+		// TODO: KOFFOR FUNKE DA IKKJE Å RENDRA(VISE DET PÅ SKJERMEN) SIRKELEN (FARGE) VED SIDEN AV NAVNET????! SATANS DRIT
 		
 		for (Spiller spiller : spillere) {
 			JPanel spillerPanel = new JPanel();
