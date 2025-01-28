@@ -32,7 +32,7 @@ public class MainFrame extends JFrame {
 		
 		SlangeDAO slangedao = new SlangeDAO();
 		
-		slangedao.skrivUtAlleSlanger();
+		System.out.println(slangedao.skrivUtAlleSlanger());
 		setTitle("Stigespill Start Frame");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
