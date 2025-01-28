@@ -29,6 +29,10 @@ public class MainFrame extends JFrame {
 	private List<Spiller> spillere;
 	
 	public MainFrame() {
+		
+		SlangeDAO slangedao = new SlangeDAO();
+		
+		slangedao.skrivUtAlleSlanger();
 		setTitle("Stigespill Start Frame");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
@@ -84,6 +88,7 @@ public class MainFrame extends JFrame {
         startKnapp.addActionListener(e -> startSpill());
         
         setVisible(true);
+        
 	}
 	
 	private void sjekkSpillere() {
