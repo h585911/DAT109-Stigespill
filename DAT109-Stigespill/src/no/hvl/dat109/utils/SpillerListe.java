@@ -21,27 +21,6 @@ public class SpillerListe extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	
-	/*public SpillerListe(List<Spiller> spillere) {
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		setPreferredSize(new Dimension(300, 300));
-		setBorder(new EmptyBorder(10, 10, 10, 10));
-		setBackground(Color.LIGHT_GRAY);
-		
-		JLabel panelTittel = new JLabel("Spillere");
-		panelTittel.setFont(new Font("Arial", Font.BOLD, 18));
-		panelTittel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		add(panelTittel);
-		
-		add(Box.createRigidArea(new Dimension(0, 10)));
-		
-		for (Spiller spiller : spillere) {
-			JLabel spillerTekst = new JLabel(spiller.getNavn());
-			spillerTekst.setFont(new Font("Arial", Font.PLAIN, 16));
-			add(spillerTekst);
-			add(Box.createRigidArea(new Dimension(0, 5)));
-		}
-	}*/
-	
 	public SpillerListe(List<Spiller> spillere) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setPreferredSize(new Dimension(200, 200));
@@ -54,9 +33,7 @@ public class SpillerListe extends JPanel {
 		add(panelTittel);
 		
 		add(Box.createRigidArea(new Dimension(0, 10)));
-		
-		// TODO: KOFFOR FUNKE DA IKKJE Å RENDRA SIRKELEN (FARGE) VED SIDEN AV NAVNET????! SATANS DRIT
-		
+
 		for (Spiller spiller : spillere) {
 			JPanel spillerPanel = new JPanel();
 			spillerPanel.setLayout(new BoxLayout(spillerPanel, BoxLayout.X_AXIS));
@@ -80,15 +57,22 @@ public class SpillerListe extends JPanel {
 					sirkelFarge = Color.BLACK;
 			}
 			
-			JLabel fargeSirkel = new JLabel() {
+			JPanel fargeSirkel = new JPanel() {
 				@Override
 				protected void paintComponent(Graphics g) {
 					super.paintComponent(g);
 					g.setColor(sirkelFarge);
 					g.fillOval(0, 0, getWidth(), getHeight());
 				}
+				
+				@Override
+				public boolean isOpaque() {
+					return false;
+				}
 			};
 			fargeSirkel.setPreferredSize(new Dimension(20, 20));
+			fargeSirkel.setMaximumSize(new Dimension(20, 20));
+			fargeSirkel.setAlignmentY(Component.CENTER_ALIGNMENT);
 			
 			JLabel spillerTekst = new JLabel(spiller.getNavn());
 			spillerTekst.setFont(new Font("Arial", Font.PLAIN, 14));
