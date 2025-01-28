@@ -25,15 +25,17 @@ public class Stige {
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
 	
+	private int stigetype; // lang stige er 1, kort stige er 2
 	
 	public Stige() {
 		super();
 	}
 
-	public Stige(int id, Rute startPos, Rute sluttPos) {
+	public Stige(int id, Rute startPos, Rute sluttPos, int stigetype) {
 		this.id = id;
 		this.startPos = startPos;
 		this.sluttPos = sluttPos;
+		this.stigetype = stigetype;
 	}
 
 	public int getId() {
@@ -59,9 +61,18 @@ public class Stige {
 	public void setSluttPos(Rute sluttPos) {
 		this.sluttPos = sluttPos;
 	}
+	
+
+	public int getStigetype() {
+		return stigetype;
+	}
+
+	public void setStigetype(int stigetype) {
+		this.stigetype = stigetype;
+	}
 
 	@Override
 	public String toString() {
-		return "Stige [id=" + id + ", startPos=" + startPos + ", sluttPos=" + sluttPos + "]";
+		return "Stige [id=" + id + ", startPos=" + startPos + ", sluttPos=" + sluttPos + ", stigetype=" + stigetype + "]";
 	}
 }
