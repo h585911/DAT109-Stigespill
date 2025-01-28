@@ -24,6 +24,7 @@ public class Terning extends JPanel {
 	private static final String[] TERNING_OYNE = {
 			"/terning/inverted-dice-1.png", "/terning/inverted-dice-2.png", "/terning/inverted-dice-3.png", "/terning/inverted-dice-4.png", "/terning/inverted-dice-5.png", "/terning/inverted-dice-6.png"
 	};
+	private static final String TERNING_DEFAULT = "/terning/default.png";
 	private int sisteKast;
 	private List<Spiller> spillere;
 	private static final int IMAGE_WIDTH = 50;
@@ -37,7 +38,7 @@ public class Terning extends JPanel {
 		setPreferredSize(new Dimension(150, 200));
 		setBackground(Color.LIGHT_GRAY);
 		
-		ImageIcon defaultIcon = scaleImage(loadImage(TERNING_OYNE[0]), IMAGE_WIDTH, IMAGE_HEIGHT);
+		ImageIcon defaultIcon = scaleImage(loadImage(TERNING_DEFAULT), IMAGE_WIDTH, IMAGE_HEIGHT);
 		terningOyneTekst = new JLabel(defaultIcon);
 		terningOyneTekst.setAlignmentX(CENTER_ALIGNMENT);
 		add(terningOyneTekst);
@@ -102,51 +103,4 @@ public class Terning extends JPanel {
 	public void setKastKnappEnabled(boolean enabled) {
 		kastKnapp.setEnabled(enabled);
 	}
-	
-	/*public Terning(List<Spiller> spillere, StatusPanel statusPanel) {
-		this.spillere = spillere;
-		this.statusPanel = statusPanel;
-		
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		setPreferredSize(new Dimension(150, 150));
-		
-		terningOyneTekst = new JLabel(new ImageIcon(TERNING_OYNE[0]));
-		terningOyneTekst.setAlignmentX(CENTER_ALIGNMENT);
-		add(terningOyneTekst);
-		
-		kastKnapp = new JButton("Kast Terning");
-		kastKnapp.setAlignmentX(CENTER_ALIGNMENT);
-		add(Box.createRigidArea(new Dimension(0, 10)));
-		add(kastKnapp);
-		
-		kastKnapp.addActionListener(e -> kastTerning());
-	}
-	
-	private void kastTerning() {
-		Random random = new Random();
-		sisteKast = random.nextInt(6) + 1; // "Tilfeldig" nummer fra 1 til 6.
-		terningOyneTekst.setIcon(new ImageIcon(TERNING_OYNE[sisteKast - 1]));
-		
-		for (Spiller spiller : spillere) {
-			if (spiller.kanKasteTerning()) {
-				spiller.setPosisjon(spiller.getPosisjon() + sisteKast);
-				spiller.setKanKasteTerning(false);
-				
-				int nesteSpiller = (spillere.indexOf(spiller) + 1) % spillere.size();
-				spillere.get(nesteSpiller).setKanKasteTerning(true);
-				
-				statusPanel.oppdaterStatus(spillere);
-				break;
-			}
-		}
-	}
-	
-	public int getSisteKast() {
-		return sisteKast;
-	}
-	
-	public void setKastKnappEnabled(boolean enabled) {
-		kastKnapp.setEnabled(enabled);
-	}*/
-	
 }

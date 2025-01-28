@@ -48,14 +48,6 @@ public class Spiller {
 	public void setPosisjon(int posisjon) {
 		this.posisjon = posisjon;
 	}
-
-	/*public Terning getTerning() {
-		return terning;
-	}
-
-	public void setTerning(Terning terning) {
-		this.terning = terning;
-	}*/
 	
 	/**
 	 * 
