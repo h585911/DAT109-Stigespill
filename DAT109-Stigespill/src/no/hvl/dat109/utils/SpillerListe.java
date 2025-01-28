@@ -21,6 +21,14 @@ public class SpillerListe extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Metoden skal vise hvilke spillere som er med i spillet.
+	 * Spillerene blir hentet fra `MainFrame`-komponenten når vi først startet spillet.
+	 * 
+	 * Hver spiller blir da vist i panelet med navn og en sirkel med hvilken farge på brikken spilleren har.
+	 * 
+	 * @param spillere
+	 */
 	public SpillerListe(List<Spiller> spillere) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setPreferredSize(new Dimension(200, 200));
