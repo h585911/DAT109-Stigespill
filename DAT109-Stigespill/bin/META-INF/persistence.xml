@@ -6,7 +6,8 @@
 		
 	<persistence-unit name="ansattPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 
-		<class>no.hvl.dat109.Entities.</class>
+		<class>no.hvl.dat109.spill.Slange</class>
+        <class>no.hvl.dat109.spill.Stige</class>
 		
 		<properties>
 		    <!--  Generelle JPA properties -->
