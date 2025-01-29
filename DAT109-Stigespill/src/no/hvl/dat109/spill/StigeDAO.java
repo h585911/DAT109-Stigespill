@@ -17,7 +17,7 @@ public class StigeDAO {
 	}
 	
 	
-	public List<Stige> skrivUtAlleStiger() {
+	public List<Stige> hentAlleStiger() {
 		EntityManager em = emf.createEntityManager();
 		
 		try {

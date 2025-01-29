@@ -17,7 +17,7 @@ public class SlangeDAO {
 	}
 	
 	
-	public List<Slange> skrivUtAlleSlanger() {
+	public List<Slange> hentAlleSlanger() {
 		EntityManager em = emf.createEntityManager();
 		
 		try {

@@ -7,11 +7,17 @@ public class Stigespill {
 	
 	private List<Spiller> spillere;
 	private Random random = new Random();
+	private List<Stige> stiger;
+	private List<Slange> slanger;
 	//private static final long serialVersionUID = 1L;
 
 	public Stigespill(List<Spiller> spillere) {
-		
 		 this.spillere = spillere;
+		 StigeDAO stigedao = new StigeDAO();
+		 SlangeDAO slangedao = new SlangeDAO();
+		 
+		 this.stiger = stigedao.hentAlleStiger();
+		 this.slanger = slangedao.hentAlleSlanger();
 		 
 		/*
 		setTitle("Stigespill");
@@ -56,6 +62,9 @@ public class Stigespill {
 	                                int andreKast = kastTerning();
 	                                spiller.setPosisjon(spiller.getPosisjon() + andreKast);
 	                                System.out.println(spiller.getNavn() + " flytter til posisjon " + spiller.getPosisjon());
+	                                
+	                                //sjekker for stiger eller slanger
+	                                sjekkForStigerOgSlanger(spiller);
 
 	                                // Hvis andre kast også er en sekser, får de ny tur
 	                                if (andreKast == 6) {
@@ -68,10 +77,21 @@ public class Stigespill {
 	                            }
 	                        } else {
 	                            // Vanlig runde: Spilleren kan kaste som normalt
+	                        	
+	                        	int avstandFraMaal = 100 - spiller.getPosisjon(); // for å fikse når man kommer til mål
 	                            int kast = kastTerning();
-	                            spiller.setPosisjon(spiller.getPosisjon() + kast);
-	                            System.out.println(spiller.getNavn() + " flytter til posisjon " + spiller.getPosisjon());
-
+	                            
+	                            //sjekker om de kommer over rute 100, hvis ikke kan man flytte:
+	                            if (kast <= avstandFraMaal) {
+	                            	spiller.setPosisjon(spiller.getPosisjon() + kast);
+	 	                            System.out.println(spiller.getNavn() + " flytter til posisjon " + spiller.getPosisjon());
+	 	                            
+	 	                            //sjekker for stiger eller slanger;
+	 	                            sjekkForStigerOgSlanger(spiller);
+	                            } else {
+	                                System.out.println(spiller.getNavn() + " trillet for høyt og må stå i ro!");
+	                            }
+	                          
 	                            // Hvis de trillet en sekser, får de en ny tur
 	                            if (kast == 6) {
 	                            	sekserTeller++;
@@ -112,7 +132,7 @@ public class Stigespill {
 	        try {
 	            for (int i = 0; i < 3; i++) { 
 	                System.out.print(".");
-	                Thread.sleep(1000); //pause mellom hvert kast
+	                Thread.sleep(300); //pause mellom hvert kast
 	            }
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
@@ -121,6 +141,24 @@ public class Stigespill {
 	        System.out.println(" 🎲 " + resultat);
 	        return resultat;
 	    }
+	 
+	 private void sjekkForStigerOgSlanger(Spiller spiller) {
+		    for (Stige stige : stiger) {
+		        if (spiller.getPosisjon() == stige.getStartPos().getRute()) {
+		            System.out.println("⬆ " + spiller.getNavn() + " fant en stige! Går opp til " + stige.getSluttPos().getRute());
+		            spiller.setPosisjon(stige.getSluttPos().getRute());
+		            return; // Spilleren kan kun bruke én stige eller slange per tur
+		        }
+		    }
+
+		    for (Slange slange : slanger) {
+		        if (spiller.getPosisjon() == slange.getStartPos().getRute()) {
+		            System.out.println("🐍 " + spiller.getNavn() + " ble bitt av en slange! Glir ned til " + slange.getSluttPos().getRute());
+		            spiller.setPosisjon(slange.getSluttPos().getRute());
+		            return; // Spilleren kan kun bruke én stige eller slange per tur
+		        }
+		    }
+	 }
 	 
 	 
 		/*
