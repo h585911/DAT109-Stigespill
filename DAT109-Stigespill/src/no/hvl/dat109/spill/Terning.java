@@ -51,6 +51,33 @@ public class Terning extends JPanel {
 		kastKnapp.addActionListener(e -> kastTerning());
 	}
 	
+	private void trill(Spiller spiller) {
+		 Random random = new Random();
+
+		 System.out.print("Spiller " + spiller.getNavn() + " kaster terningen");
+		    
+	    // Simuler trilling av terning med en liten "animasjon"
+	    for (int i = 0; i < 3; i++) {
+	        try {
+	            Thread.sleep(500); // 0.5 sekunder forsinkelse per "trill"
+	            System.out.print(".");
+	        } catch (InterruptedException e) {
+	            Thread.currentThread().interrupt();
+	        }
+	    }
+
+	    sisteKast = random.nextInt(6) + 1;
+	    System.out.println(" og fikk: " + sisteKast);
+
+	    spiller.setPosisjon(spiller.getPosisjon() + sisteKast);
+	    System.out.println("Ny posisjon på brettet: " + spiller.getPosisjon());
+
+	    // Neste spiller får tur
+	    int nesteSpiller = (spillere.indexOf(spiller) + 1) % spillere.size();
+	    spillere.get(nesteSpiller).setKanKasteTerning(true);
+	}
+	
+	/*
 	private void kastTerning() {
 		Random random = new Random();
 		sisteKast = random.nextInt(6) + 1; // "Tilfeldig" nummer fra 1 til 6
@@ -74,7 +101,7 @@ public class Terning extends JPanel {
 				break;
 			}
 		}
-	}
+	}*/
 	
 	private ImageIcon loadImage(String path) {
 		java.net.URL imageUrl = getClass().getResource(path);

@@ -30,11 +30,6 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame() {
 		
-		SlangeDAO slangedao = new SlangeDAO();
-		StigeDAO stigedao = new StigeDAO();
-		
-		System.out.println(slangedao.skrivUtAlleSlanger());
-		System.out.println(stigedao.skrivUtAlleStiger());
 		setTitle("Stigespill Start Frame");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
@@ -124,7 +119,7 @@ public class MainFrame extends JFrame {
 			spillere.add(lagSpiller(spiller4Field.getText().trim(), farger, random, brukteFarger));
 		}
 		
-		System.out.println("Starter spillet med spillere:");
+		System.out.println("\nStarter spillet med spillere:");
 		for (Spiller spiller : spillere) {
 			System.out.println(spiller);
 		}
