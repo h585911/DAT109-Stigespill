@@ -24,9 +24,7 @@ public class Slange {
 	@Embedded
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
-	
-	private int slangetype; //grønn slange er 1, rosa er 2, gul er 3
-	
+		
 	
 	public Slange() {
 		super();
@@ -36,7 +34,6 @@ public class Slange {
 		this.id = id;
 		this.startPos = startPos;
 		this.sluttPos = sluttPos;
-		this.slangetype = slangetype;
 	}
 
 	public int getId() {
@@ -63,17 +60,9 @@ public class Slange {
 		this.sluttPos = sluttPos;
 	}
 
-	
-	public int getSlangetype() {
-		return slangetype;
-	}
-
-	public void setSlangetype(int slangetype) {
-		this.slangetype = slangetype;
-	}
 
 	@Override
 	public String toString() {
-		return "Slange [id=" + id + ", startPos=" + startPos + ", sluttPos=" + sluttPos + ", slangetype=" + slangetype + "]";
+		return "Slange [id=" + id + ", startPos=" + startPos + ", sluttPos=" + sluttPos + "]";
 	}
 }

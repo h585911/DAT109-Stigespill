@@ -9,7 +9,6 @@ public class Stigespill {
 	private Random random = new Random();
 	private List<Stige> stiger;
 	private List<Slange> slanger;
-	//private static final long serialVersionUID = 1L;
 
 	public Stigespill(List<Spiller> spillere) {
 		 this.spillere = spillere;
@@ -19,14 +18,6 @@ public class Stigespill {
 		 this.stiger = stigedao.hentAlleStiger();
 		 this.slanger = slangedao.hentAlleSlanger();
 		 
-		/*
-		setTitle("Stigespill");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1200, 700);
-		setLayout(new BorderLayout());
-		setResizable(false);
-		*/
-		
 		/**
 		 * Den første spilleren i listen settes som aktiv.
 		 * Dvs. at spilleren har prioritet til å kaste terning.
@@ -159,32 +150,4 @@ public class Stigespill {
 		        }
 		    }
 	 }
-	 
-	 
-		/*
-		
-		//Brett panel
-		Brett brett = new Brett();
-		add(brett, BorderLayout.CENTER);
-		
-		
-		//Får tak i slanger og stiger:
-		SlangeDAO slangedao = new SlangeDAO();
-		StigeDAO stigedao = new StigeDAO();
-		
-		// Spiller panel
-		SpillerListe spillerListe = new SpillerListe(spillere);
-		add(spillerListe, BorderLayout.EAST);
-		
-		// Status panel
-		StatusPanel statusPanel = new StatusPanel(spillere);
-		add(statusPanel, BorderLayout.SOUTH);
-		
-		// Terning panel
-		Terning terning = new Terning(spillere, statusPanel);
-		add(terning, BorderLayout.WEST);
-		
-		
-		setVisible(true);
-		*/
 	}

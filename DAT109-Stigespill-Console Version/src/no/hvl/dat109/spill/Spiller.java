@@ -5,16 +5,11 @@ public class Spiller {
 	private String navn;
 	private Brikke brikke;
 	private boolean kanKasteTerning;
-	private int posisjon;
-	
-	//private Terning terning;
 	
 	public Spiller(String navn, Brikke brikke) {
 		this.navn = navn;
 		this.brikke = brikke;
 		this.kanKasteTerning = false;
-		this.posisjon = 0;
-		//this.terning = terning;
 	}
 
 	public String getNavn() {
@@ -41,14 +36,6 @@ public class Spiller {
 		this.kanKasteTerning = kanKasteTerning;
 	}
 	
-	public int getPosisjon() {
-		return posisjon;
-	}
-	
-	public void setPosisjon(int posisjon) {
-		this.posisjon = posisjon;
-	}
-	
 	/**
 	 * 
 	 */
@@ -58,8 +45,8 @@ public class Spiller {
 
 	@Override
 	public String toString() {
-		return "Spiller [navn=" + navn + ", brikke=" + brikke + ", posisjon=" + posisjon + "]";
-
-		//return "Spiller [navn=" + navn + ", brikke=" + brikke + ", terning=" + terning + "]";
+		return "Spiller [navn=" + navn + ", brikke=" + brikke + "]";
 	}
+
+	
 }
