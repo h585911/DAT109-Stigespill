@@ -6,17 +6,16 @@ public class Terning {
 		
 	private Random random;
 	
-	
-	public Terning(Random random) {
-		this.random = random;
+	public Terning() {
+		this.random = new Random();
 	}
 	
-	private int trill() {
+	public int trill() {
 		System.out.print("Kaster terningen");
         try {
             for (int i = 0; i < 3; i++) { 
                 System.out.print(".");
-                Thread.sleep(300); //pause mellom hvert kast
+                Thread.sleep(500); //pause mellom hvert kast
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
