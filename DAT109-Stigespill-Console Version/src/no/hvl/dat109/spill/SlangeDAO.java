@@ -8,6 +8,9 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
+/**
+ * DAO-klasse for å håndtere databasedrift av Slange-objekter.
+ */
 public class SlangeDAO {
 
 	private EntityManagerFactory emf;

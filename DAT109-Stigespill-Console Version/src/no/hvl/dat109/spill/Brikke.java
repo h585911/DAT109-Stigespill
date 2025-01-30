@@ -2,6 +2,11 @@ package no.hvl.dat109.spill;
 
 import java.util.List;
 
+/**
+ * Representerer en brikke i spillet.
+ * Brikken kan flyttes rundt på spillbrettet og interagere med stiger og
+ * slanger.
+ */
 public class Brikke {
 
     private String farge;
@@ -37,7 +42,7 @@ public class Brikke {
                 System.out.println("🐍 Ånei! Du ble bitt av en slange!");
                 rute = slange.getSluttPos();
                 System.out.println("Går ned til rute " + rute.getRute());
-                break; // Når en slange er funnet, slutter vi å lete
+                break; // Når en slange er funnet, slutter vi å lete.
             }
         }
     }

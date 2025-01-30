@@ -1,5 +1,10 @@
 package no.hvl.dat109.spill;
 
+/**
+ * Representerer en spiller i stigespillet. Hver spiller har en brikke og kan
+ * kaste
+ * terningen for å flytte brikken på brettet.
+ */
 public class Spiller {
 
 	private String navn;
@@ -80,18 +85,38 @@ public class Spiller {
 
 	}
 
+	/**
+	 * Henter spillerens navn.
+	 * 
+	 * @return Spillerens navn.
+	 */
 	public String getNavn() {
 		return navn;
 	}
 
+	/**
+	 * Setter spillerens navn.
+	 * 
+	 * @param navn Det nye navnet til spilleren.
+	 */
 	public void setNavn(String navn) {
 		this.navn = navn;
 	}
 
+	/**
+	 * Henter spillerens brikke.
+	 * 
+	 * @return Spillerens brikke.
+	 */
 	public Brikke getBrikke() {
 		return brikke;
 	}
 
+	/**
+	 * Setter spillerens brikke.
+	 * 
+	 * @param brikke Den nye brikken til spilleren.
+	 */
 	public void setBrikke(Brikke brikke) {
 		this.brikke = brikke;
 	}
