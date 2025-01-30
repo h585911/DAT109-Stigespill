@@ -31,11 +31,10 @@ public class spillerTest {
 		//oppretter spilleren
 		spiller = new Spiller("Teresa", brikke);
 		
-		mockTerning = Mockito.mock(Terning.class); //lager en falsk terning
-		
-		
-		
-		
+		mockTerning = Mockito.mock(Terning.class); //lager en falsk terning	
 	}
+	
+	@Test
+	void testSpillerStart
 	
 }
