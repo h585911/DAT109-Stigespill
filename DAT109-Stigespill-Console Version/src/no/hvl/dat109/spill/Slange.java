@@ -11,45 +11,35 @@ import jakarta.persistence.Table;
 
 /**
  * Representerer en slange i stigespillet. En slange har en startposisjon
- * og en sluttposisjon, og flytter spilleren bakover dersom den lander på slangens startposisjon.
+ * og en sluttposisjon, og flytter spilleren bakover dersom den lander på
+ * slangens startposisjon.
  */
 
 @Entity
 @Table(schema = "stigespill")
 public class Slange {
-	
-	/**
-	 * Unik identifikastor for slange.
-	 */
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	/**
-	 * Startposisjon for slangen, der spilleren går ned hvis de lander på denne ruten.
-	 */
+
 	@Embedded
-    @AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
+	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	private Rute startPos;
-	
-	/**
-	 * Sluttposisjon for slangen, der spilleren ender opp etter å ha truffet slangen.
-	 */
+
 	@Embedded
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
-		
-	/**
-	 * Standardkonstruktør for JPA.
-	 */
+
 	public Slange() {
 		super();
 	}
 
 	/**
-	 * Konstruktør som oppretter en slange med spesifisert ID, start- og sluttposisjon.
+	 * Konstruktør som oppretter en slange med spesifisert ID, start- og
+	 * sluttposisjon.
 	 * 
-	 * @param id Unik identifikator for slangen.
+	 * @param id       Unik identifikator for slangen.
 	 * @param startPos Startposisjon til slangen.
 	 * @param sluttPos Sluttposisjon til slangen.
 	 */
@@ -112,12 +102,7 @@ public class Slange {
 	public void setSluttPos(Rute sluttPos) {
 		this.sluttPos = sluttPos;
 	}
-	
-	/**
-	 * Returnerer en strengrepresentasjon av slangen.
-	 * 
-	 * @return En streng som representerer slangen.
-	 */
+
 	@Override
 	public String toString() {
 		return "Slange [id=" + id + ", startPos=" + startPos + ", sluttPos=" + sluttPos + "]";

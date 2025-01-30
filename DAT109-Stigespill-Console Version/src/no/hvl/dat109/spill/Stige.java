@@ -9,26 +9,35 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/* 
+ * Klassen representerer en Stige i stigespillet
+ * En stige har en startposisjon og en sluttposisjon, som angir hvor spilleren kan klatre
+*/
+
 @Entity
 @Table(schema = "stigespill")
 public class Stige {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Embedded
-    @AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
+	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
+	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	private Rute startPos;
-	
+
 	@Embedded
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
-		
+
+	// Standard konstruktør
 	public Stige() {
 		super();
 	}
 
+	// Konstruktør som oppretter en Stige med ID (hvilken stige), startpos og
+	// sluttpos
 	public Stige(int id, Rute startPos, Rute sluttPos, int stigetype) {
 		this.id = id;
 		this.startPos = startPos;
@@ -58,7 +67,6 @@ public class Stige {
 	public void setSluttPos(Rute sluttPos) {
 		this.sluttPos = sluttPos;
 	}
-	
 
 	@Override
 	public String toString() {
