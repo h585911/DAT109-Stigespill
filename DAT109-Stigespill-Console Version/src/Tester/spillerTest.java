@@ -85,7 +85,7 @@ public class spillerTest {
                      "Spilleren skal ikke flytte hvis første kast ikke var 6.");
     }
 }
-	
+
 	@Test
 	void testSpillerBlirStåendeHvisKastErForHøyt() {
 	    spiller.getBrikke().flyttBrikke(98); // Sett spilleren på rute 98
