@@ -35,7 +35,7 @@ public class spillerTest {
 		mockTerning = Mockito.mock(Terning.class); // lager en falsk terning
 	}
 
-	@Test
-	void testSpillerStart
+	// @Test
+	// void testSpillerStart
 
 }

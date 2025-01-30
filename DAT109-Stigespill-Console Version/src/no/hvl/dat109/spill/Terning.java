@@ -26,7 +26,6 @@ public class Terning {
             // Simulerer at terningen "ruller" med tre korte pauser
             for (int i = 0; i < 3; i++) {
                 System.out.print(".");
-                Thread.sleep(500); // pause mellom hvert kast
                 Thread.sleep(500); // Pause i 500 ms mellom hver prikk
             }
             // Håndterer mulig avbruddsfeil

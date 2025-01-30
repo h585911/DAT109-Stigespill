@@ -10,9 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /* 
- * Entity-klasse som representerer en Stige i stigespillet
+ * Klassen representerer en Stige i stigespillet
  * En stige har en startposisjon og en sluttposisjon, som angir hvor spilleren kan klatre
 */
+
 @Entity
 @Table(schema = "stigespill")
 public class Stige {
@@ -22,6 +23,7 @@ public class Stige {
 	private int id;
 
 	@Embedded
+	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	private Rute startPos;
 

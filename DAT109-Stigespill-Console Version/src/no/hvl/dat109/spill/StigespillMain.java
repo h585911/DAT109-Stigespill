@@ -40,25 +40,34 @@ public class StigespillMain {
             }
         }
 
+        // Starter spillet med de valgte spillerne
         new Stigespill(spillere);
         scanner.close();
     }
 
+    /*
+     * Oppretter en spiller med et unikt navn og en tilfeldig valgt farge
+     * Henter også stigene og slangene fra databasen
+     * Oppretter en array med farger
+     * Returnerer en ny spiller med tilhørende brikke
+     */
     private static Spiller lagSpiller(String navn, String[] farger, Random random, Set<String> brukteFarger) {
         String farge;
 
+        // Velger en tilfeldig farge som ikke allerede er brukt
         do {
             farge = farger[random.nextInt(farger.length)];
         } while (brukteFarger.contains(farge));
         brukteFarger.add(farge);
 
-        // Hent stigene og slangene fra databasen via DAO-ene
+        // Henter stigene og slangene fra databasen via DAO-ene
         StigeDAO stigedao = new StigeDAO();
         SlangeDAO slangedao = new SlangeDAO();
 
         List<Stige> stiger = stigedao.hentAlleStiger(); // Henter alle stiger
         List<Slange> slanger = slangedao.hentAlleSlanger(); // Henter alle slanger
 
+        // Oppretter en brikke med stiger og slanger
         Brikke brikke = new Brikke(stiger, slanger);
         Spiller spiller = new Spiller(navn, brikke);
 

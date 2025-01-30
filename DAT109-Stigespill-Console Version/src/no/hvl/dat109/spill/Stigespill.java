@@ -19,8 +19,23 @@ public class Stigespill {
 	// Initialisere terning, henter stiger og slanger fra DB, og gir spillerne
 	// brikker.
 	// returnerer en liste av spillerne som deltar i spillet
+	// Konstruktør som oppretter et nytt Stigespill med en liste av spillere.
+	// Initialisere terning, henter stiger og slanger fra DB, og gir spillerne
+	// brikker.
+	// returnerer en liste av spillerne som deltar i spillet
 	public Stigespill(List<Spiller> spillere) {
 		this.spillere = spillere;
+		this.terning = new Terning();
+		this.stigedao = new StigeDAO();
+		this.slangedao = new SlangeDAO();
+		this.stiger = stigedao.hentAlleStiger();
+		this.slanger = slangedao.hentAlleSlanger();
+
+		// Opprett brikker for spillerne med tilgang til stiger og slanger
+		for (Spiller spiller : spillere) {
+			spiller.setBrikke(new Brikke(stiger, slanger));
+		}
+
 		this.terning = new Terning();
 		this.stigedao = new StigeDAO();
 		this.slangedao = new SlangeDAO();
@@ -44,6 +59,9 @@ public class Stigespill {
 		spill();
 
 	}
+
+	// Metode som håndterer spillets gang.
+	// Spillet fortsetter til en spiller når målrute 100.
 
 	// Metode som håndterer spillets gang.
 	// Spillet fortsetter til en spiller når målrute 100.
@@ -71,5 +89,4 @@ public class Stigespill {
 			}
 		}
 	}
-
 }

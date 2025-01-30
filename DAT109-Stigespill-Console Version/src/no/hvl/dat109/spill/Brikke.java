@@ -62,5 +62,4 @@ public class Brikke {
     public void setRute(Rute rute) {
         this.rute = rute;
     }
-
 }
