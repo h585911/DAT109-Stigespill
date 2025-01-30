@@ -7,23 +7,27 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
-public class StigespillMain{
+/*
+ * Hovedklassen for stigespillet.
+ * Denne klassen håndterer oppstarten av spillet, oppretter spillere og starter spillet
+ */
+public class StigespillMain {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Spiller> spillere = new ArrayList<>();
         Random random = new Random();
-        String[] farger = {"Red", "Blue", "Green", "Yellow"};
+        String[] farger = { "Red", "Blue", "Green", "Yellow" };
         Set<String> brukteFarger = new HashSet<>();
-        
+
         System.out.println("Velkommen til Stigespill!");
-        
+
         // Be om navn for spillere (2-4 spillere)
         while (spillere.size() < 2 || spillere.size() > 4) {
-            spillere.clear();  // Rydder listen hvis vi har for mange eller for få spillere
+            spillere.clear(); // Rydder listen hvis vi har for mange eller for få spillere
             System.out.println("Hvor mange spillere? (2-4)");
             int antallSpillere = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             if (antallSpillere < 2 || antallSpillere > 4) {
                 System.out.println("Du må ha mellom 2 og 4 spillere. Prøv igjen.");
@@ -35,29 +39,29 @@ public class StigespillMain{
                 }
             }
         }
-        
-        new Stigespill(spillere);  
-        scanner.close();  
+
+        new Stigespill(spillere);
+        scanner.close();
     }
-    
+
     private static Spiller lagSpiller(String navn, String[] farger, Random random, Set<String> brukteFarger) {
         String farge;
-        
+
         do {
             farge = farger[random.nextInt(farger.length)];
         } while (brukteFarger.contains(farge));
         brukteFarger.add(farge);
-        
+
         // Hent stigene og slangene fra databasen via DAO-ene
         StigeDAO stigedao = new StigeDAO();
         SlangeDAO slangedao = new SlangeDAO();
-        
-        List<Stige> stiger = stigedao.hentAlleStiger();  // Henter alle stiger
-        List<Slange> slanger = slangedao.hentAlleSlanger();  // Henter alle slanger
-        
-        Brikke brikke = new Brikke(stiger, slanger); 
+
+        List<Stige> stiger = stigedao.hentAlleStiger(); // Henter alle stiger
+        List<Slange> slanger = slangedao.hentAlleSlanger(); // Henter alle slanger
+
+        Brikke brikke = new Brikke(stiger, slanger);
         Spiller spiller = new Spiller(navn, brikke);
-        
+
         return spiller;
     }
 }

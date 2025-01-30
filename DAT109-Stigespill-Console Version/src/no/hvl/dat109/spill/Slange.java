@@ -12,20 +12,19 @@ import jakarta.persistence.Table;
 @Entity
 @Table(schema = "stigespill")
 public class Slange {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Embedded
-    @AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
+	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	private Rute startPos;
-	
+
 	@Embedded
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
-		
-	
+
 	public Slange() {
 		super();
 	}
@@ -59,7 +58,6 @@ public class Slange {
 	public void setSluttPos(Rute sluttPos) {
 		this.sluttPos = sluttPos;
 	}
-
 
 	@Override
 	public String toString() {

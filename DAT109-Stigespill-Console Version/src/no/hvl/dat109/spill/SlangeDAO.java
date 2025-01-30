@@ -9,21 +9,20 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
 public class SlangeDAO {
-	
+
 	private EntityManagerFactory emf;
-	
+
 	public SlangeDAO() {
 		emf = Persistence.createEntityManagerFactory("slangespillPersistenceUnit");
 	}
-	
-	
+
 	public List<Slange> hentAlleSlanger() {
 		EntityManager em = emf.createEntityManager();
-		
+
 		try {
 			String q = "SELECT s FROM Slange s";
 			TypedQuery<Slange> query = em.createQuery(q, Slange.class);
-			
+
 			List<Slange> resultList = query.getResultList();
 			return resultList;
 		} catch (NoResultException e) {
@@ -36,5 +35,5 @@ public class SlangeDAO {
 			em.close();
 		}
 	}
-	
+
 }
