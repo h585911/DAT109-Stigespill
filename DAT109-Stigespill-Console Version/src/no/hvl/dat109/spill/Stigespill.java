@@ -18,6 +18,7 @@ public class Stigespill {
         this.stigedao = new StigeDAO();
         this.slangedao = new SlangeDAO();
         this.stiger = stigedao.hentAlleStiger();
+        System.out.println(stigedao.hentAlleStiger());
         this.slanger = slangedao.hentAlleSlanger();
         
         // Opprett brikker for spillerne med tilgang til stiger og slanger
