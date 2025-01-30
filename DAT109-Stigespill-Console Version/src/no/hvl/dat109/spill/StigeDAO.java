@@ -8,20 +8,28 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
-/* 
- * DAO-klasse for Stige-objekter som håndterer DB-operasjoner
-*/
+/**
+ * DAO-klasse (Data Access Object) for å håndtere databasedrift av Stige-objekter.
+ */
 public class StigeDAO {
 
+	/**
+	 * Oppretter en EntityManagerFactory.
+	 */
 	private EntityManagerFactory emf;
 
-	// Konstruktør som håndterer databasekommunikasjon
+	/**
+	 * Konstruktør som oppretter en EntityManagerFactory for Persistenceenheten.
+	 */
 	public StigeDAO() {
 		emf = Persistence.createEntityManagerFactory("slangespillPersistenceUnit");
 	}
 
-	// Henter alle stiger fra databasen
-	// Returnerer en liste av alle Stige-objekter, eller null hvis ingen finnes.
+	/**
+	 * Henter alle stiger fra databasen.
+	 * 
+	 * @return En liste over alle stiger i databasen, eller {@code null} hvis ingen finnes.
+	 */
 	public List<Stige> hentAlleStiger() {
 		EntityManager em = emf.createEntityManager();
 
@@ -41,5 +49,4 @@ public class StigeDAO {
 			em.close();
 		}
 	}
-
 }

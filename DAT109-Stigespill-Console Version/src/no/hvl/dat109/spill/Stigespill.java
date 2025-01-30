@@ -7,12 +7,34 @@ import java.util.List;
  */
 public class Stigespill {
 
+	/**
+	 * Liste over alle spillere i spillet.
+	 */
 	private List<Spiller> spillere;
+	
+	/**
+	 * Liste over alle stiger i spillet.
+	 */
 	private List<Stige> stiger;
+	
+	/**
+	 * Liste over alle slanger i spillet.
+	 */
 	private List<Slange> slanger;
+	
+	/**
+	 * Referanse til én Terning.
+	 */
 	private Terning terning;
 
+	/**
+	 * Referanse til StigeDAO for å hente stiger fra databasen.
+	 */
 	private StigeDAO stigedao;
+	
+	/**
+	 * Referanse til SlangeDAO for å hente slanger fra databasen.
+	 */
 	private SlangeDAO slangedao;
 
 	/**
@@ -60,11 +82,9 @@ public class Stigespill {
 
 	}
 
-	// Metode som håndterer spillets gang.
-	// Spillet fortsetter til en spiller når målrute 100.
-
-	// Metode som håndterer spillets gang.
-	// Spillet fortsetter til en spiller når målrute 100.
+	/**
+	 * Kjører spillet og håndterer turene for hver spiller til spillet er ferdig.
+	 */
 	private void spill() {
 		boolean spillPågår = true;
 

@@ -14,23 +14,34 @@ import jakarta.persistence.Table;
  * og en sluttposisjon, og flytter spilleren bakover dersom den lander på
  * slangens startposisjon.
  */
-
 @Entity
 @Table(schema = "stigespill")
 public class Slange {
 
+	/**
+	 * Unik identifikator for slangen.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	/**
+	 * Startposisjon for slangen, der spilleren går ned hvis de lander på denne rute.
+	 */
 	@Embedded
 	@AttributeOverride(name = "rute", column = @Column(name = "start_pos"))
 	private Rute startPos;
 
+	/**
+	 * Sluttposisjon for slangen, der spilleren ender opp etter å ha truffet slangen (startPos).
+	 */
 	@Embedded
 	@AttributeOverride(name = "rute", column = @Column(name = "slutt_pos"))
 	private Rute sluttPos;
 
+	/**
+	 * Standardkonstruktør for JPA.
+	 */
 	public Slange() {
 		super();
 	}
@@ -103,6 +114,11 @@ public class Slange {
 		this.sluttPos = sluttPos;
 	}
 
+	/**
+	 * Returnerer en strengrepresentasjon av slangen.
+	 * 
+	 * @return En streng som representerer slangen.
+	 */
 	@Override
 	public String toString() {
 		return "Slange [id=" + id + ", startPos=" + startPos + ", sluttPos=" + sluttPos + "]";
