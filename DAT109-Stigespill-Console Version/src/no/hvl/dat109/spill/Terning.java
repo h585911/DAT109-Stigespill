@@ -2,24 +2,28 @@ package no.hvl.dat109.spill;
 
 import java.util.Random;
 
-// Denne klassen representerer en terning som kan trilles for å få en tilfeldig verdi mellom 1 og 6
+/**
+ * Representerer en terning i spillet. Terningen kan trilles og gir et tilfeldig tall mellom 1 og 6.
+ */
 public class Terning {
 
-    // Tilfeldig generator for terningkast
+	/**
+	 * Referanse til den innebygde Random-klassen. 
+	 */
     private Random random;
 
-    // Konstruktør som oppretter en terning med en tilfeldig generator
+    /**
+     * Konstruktør som oppretter en ny terning med en tilfedig generator.
+     */
     public Terning() {
         this.random = new Random();
     }
 
     /**
-     * Denne metoden triller terningen og returnerer en tilfeldig verdi mellom 1 og
-     * 6.
-     * Vi bruker tråder for å simulere kast med en visuell effekt av venting og
-     * prikker.
-     * Returnerer en tilfeldig verdi mellom 1 og 6.
-     **/
+     * Triller terningen og returnerer en verdi mellom 1 og 6.
+     * 
+     * @return En tilfeldig verdi mellom 1 og 6.
+     */
     public int trill() {
         System.out.print("Kaster terningen");
         try {
@@ -36,6 +40,10 @@ public class Terning {
         System.out.println(" 🎲 " + verdi);
         return verdi;
     }
+<<<<<<< HEAD
 
 	
 }
+=======
+}
+>>>>>>> 86bd076d1c5b270dd142d1485820553daa6e4d72

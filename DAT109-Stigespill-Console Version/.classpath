@@ -10,6 +10,6 @@
 	<classpathentry kind="lib" path="src/META-INF/jakarta.persistence-api-3.1.0.jar"/>
 	<classpathentry kind="lib" path="src/META-INF/postgresql-42.6.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="src/META-INF/mockito-core-5.15.2.jar"/>
+	<classpathentry kind="lib" path="src/META-INF/Mockito Core 5.15.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -8,12 +8,22 @@ import jakarta.persistence.Embeddable;
  * Representerer en rute i stigespillet. En rute kan inneholde
  * en stige eller en slange. En rute har ett unikt nummer.
  */
-
 @Embeddable
 public class Rute {
 
-    private int rute; // Nummeret til denne rute.
-    private List<Stige> stiger; // Liste over stiger som er tilknyttet denne ruten.
+	/**
+	 * IDen til ruten
+	 */
+    private int rute;
+    
+    /**
+     * Liste over stiger i spillet.
+     */
+    private List<Stige> stiger;
+    
+    /**
+     * Liste over slanger i spillet.
+     */
     private List<Slange> slanger; // Liste over slanger som tilknyttet denne ruten.
 
     /**

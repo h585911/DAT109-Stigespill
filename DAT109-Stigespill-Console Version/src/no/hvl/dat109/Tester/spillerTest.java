@@ -1,5 +1,4 @@
-package Tester;
-
+package no.hvl.dat109.Tester;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -24,19 +23,22 @@ import no.hvl.dat109.spill.Terning;
 public class spillerTest {
 	private Spiller spiller;
 	private Brikke brikke;
+
 	private Terning terning;
 
+	
+	
 	@BeforeEach
-	void setUp() {
+	void setUUp() {
 		
 		//oppretter en liste uten stiger eller slange
 
 		List<Stige> stiger = new ArrayList<>();
 		List<Slange> slanger = new ArrayList<>();
-
-		// oppretter en brikke på startposisjon
+		
+		//oppretter en brikke på startposisjon
 		brikke = new Brikke(stiger, slanger);
-		// oppretter spilleren
+		//oppretter spilleren
 		spiller = new Spiller("Teresa", brikke);
 
 		terning = new Terning(); // lager en falsk terning
@@ -62,6 +64,7 @@ public class spillerTest {
 		//sjekker om brikken flyttes riktig i forhold til kaste( et tall(nypos) == 0(Startpos) +  et tall(nypos))
 		assertEquals(nypos,(startpos+ nypos)); 
 	}
+	
 	@Test
 	void testSpillerFårEkstraKastHvisFørsteErSeks() {
     int startpos = spiller.getBrikke().getRute().getRute(); // Lagre startposisjon
@@ -84,6 +87,8 @@ public class spillerTest {
         assertEquals(startpos, spiller.getBrikke().getRute().getRute(), 
                      "Spilleren skal ikke flytte hvis første kast ikke var 6.");
     }
+
+
 }
 
 	@Test

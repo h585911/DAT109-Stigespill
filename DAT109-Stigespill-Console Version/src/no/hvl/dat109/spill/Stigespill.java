@@ -2,27 +2,49 @@ package no.hvl.dat109.spill;
 
 import java.util.List;
 
-/* 
- * Klassen representerer selve Stigespillet og håndterer spillere, stiger, slanger og terningkast
-*/
+/**
+ * Klassen representerer selve Stigespillet og håndterer spillere, stiger, slanger og terningskast.
+ */
 public class Stigespill {
 
+	/**
+	 * Liste over alle spillere i spillet.
+	 */
 	private List<Spiller> spillere;
+	
+	/**
+	 * Liste over alle stiger i spillet.
+	 */
 	private List<Stige> stiger;
+	
+	/**
+	 * Liste over alle slanger i spillet.
+	 */
 	private List<Slange> slanger;
+	
+	/**
+	 * Referanse til én Terning.
+	 */
 	private Terning terning;
 
+	/**
+	 * Referanse til StigeDAO for å hente stiger fra databasen.
+	 */
 	private StigeDAO stigedao;
+	
+	/**
+	 * Referanse til SlangeDAO for å hente slanger fra databasen.
+	 */
 	private SlangeDAO slangedao;
 
-	// Konstruktør som oppretter et nytt Stigespill med en liste av spillere.
-	// Initialisere terning, henter stiger og slanger fra DB, og gir spillerne
-	// brikker.
-	// returnerer en liste av spillerne som deltar i spillet
-	// Konstruktør som oppretter et nytt Stigespill med en liste av spillere.
-	// Initialisere terning, henter stiger og slanger fra DB, og gir spillerne
-	// brikker.
-	// returnerer en liste av spillerne som deltar i spillet
+	/**
+	 * Konstruktør som oppretter et nytt Stigespill med en liste av spillere.
+	 * Terningen initialiseres, stiger og slanger hentes fra databasen, og det gis en brikke til hver spiller.
+	 * 
+	 * Stigespill 
+	 * 
+	 * @param spillere Alle spillere som er med i stigespillet.
+	 */
 	public Stigespill(List<Spiller> spillere) {
 		this.spillere = spillere;
 		this.terning = new Terning();
@@ -60,11 +82,9 @@ public class Stigespill {
 
 	}
 
-	// Metode som håndterer spillets gang.
-	// Spillet fortsetter til en spiller når målrute 100.
-
-	// Metode som håndterer spillets gang.
-	// Spillet fortsetter til en spiller når målrute 100.
+	/**
+	 * Kjører spillet og håndterer turene for hver spiller til spillet er ferdig.
+	 */
 	private void spill() {
 		boolean spillPågår = true;
 

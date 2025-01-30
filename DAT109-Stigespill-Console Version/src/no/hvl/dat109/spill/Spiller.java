@@ -7,16 +7,38 @@ package no.hvl.dat109.spill;
  */
 public class Spiller {
 
+	/**
+	 * Spillerens navn.
+	 */
 	private String navn;
+	
+	/**
+	 * Spillerens brikke.
+	 */
 	private Brikke brikke;
+	
+	/**
+	 * Indikerer om spilleren kan kaste terningen.
+	 */
 	private boolean kanKasteTerning;
 
+	/**
+	 * Konstruktør for å opprette en spiller med navn og brikke.
+	 * 
+	 * @param navn Spillerens navn
+	 * @param brikke Brikken som tilhører spilleren.
+	 */
 	public Spiller(String navn, Brikke brikke) {
 		this.navn = navn;
 		this.brikke = brikke;
 		this.kanKasteTerning = false;
 	}
 
+	/**
+	 * Utfører et spilltrekk hvor spilleren kaster terningen og flytter brikken tilsvarende.
+	 * 
+	 * @param terning Terningen som brukes i spillet.
+	 */
 	public void spilltrekk(Terning terning) {
 
 		System.out.println("\n🔹 " + navn + " sin tur!");
@@ -121,14 +143,29 @@ public class Spiller {
 		this.brikke = brikke;
 	}
 
+	/**
+	 * Sjekker om spilleren kan kaste terningen.
+	 * 
+	 * @return {@code true} hvis spilleren kan kaste terningen, ellers {@code false}.
+	 */
 	public boolean kanKasteTerning() {
 		return kanKasteTerning;
 	}
 
+	/**
+	 * Setter om spilleren kan kaste terningen.
+	 * 
+	 * @param kanKasteTerning {@code true} hvis spilleren skal kunne kaste terningen.
+	 */
 	public void setKanKasteTerning(boolean kanKasteTerning) {
 		this.kanKasteTerning = kanKasteTerning;
 	}
 
+	/**
+	 * Returnerer en strengrepresentasjon av spilleren.
+	 * 
+	 * @return En streng som representerer spilleren.
+	 */
 	@Override
 	public String toString() {
 		return "Spiller [navn=" + navn + ", brikke=" + brikke.getFarge() + "]";
