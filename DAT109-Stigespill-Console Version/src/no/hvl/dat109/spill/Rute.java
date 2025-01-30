@@ -23,6 +23,10 @@ public class Rute{
      * @param stiger Liste over stiger på denne ruten.
      * @param slanger Liste over slanger på denne ruten.
      */
+    
+    public Rute() {
+    	
+    };
     public Rute(int rute, List<Stige> stiger, List<Slange> slanger) {
         this.rute = rute;
         this.stiger = stiger;

@@ -53,7 +53,9 @@ public class StigespillMain{
         SlangeDAO slangedao = new SlangeDAO();
         
         List<Stige> stiger = stigedao.hentAlleStiger();  // Henter alle stiger
+        System.out.println(stigedao.hentAlleStiger());
         List<Slange> slanger = slangedao.hentAlleSlanger();  // Henter alle slanger
+        System.out.println(slangedao.hentAlleSlanger());
         
         Brikke brikke = new Brikke(stiger, slanger); 
         Spiller spiller = new Spiller(navn, brikke);

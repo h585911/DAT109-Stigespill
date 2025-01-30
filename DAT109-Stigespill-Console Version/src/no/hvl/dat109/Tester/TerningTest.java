@@ -1,4 +1,4 @@
-package Tester;
+package no.hvl.dat109.Tester;
 
 import static org.junit.jupiter.api.Assertions.*;
 

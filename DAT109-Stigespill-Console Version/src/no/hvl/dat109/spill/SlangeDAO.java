@@ -22,6 +22,7 @@ public class SlangeDAO {
 		emf = Persistence.createEntityManagerFactory("slangespillPersistenceUnit");
 	}
 	
+	
 	/**
 	 * Henter alle slanger fra databasen.
 	 * 
