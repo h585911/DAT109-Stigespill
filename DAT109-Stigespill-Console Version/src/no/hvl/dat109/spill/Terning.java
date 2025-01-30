@@ -36,4 +36,6 @@ public class Terning {
         System.out.println(" 🎲 " + verdi);
         return verdi;
     }
+
+	
 }
