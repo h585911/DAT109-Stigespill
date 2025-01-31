@@ -15,7 +15,7 @@ public class Terning {
         try {
             for (int i = 0; i < 3; i++) { 
                 System.out.print(".");
-                Thread.sleep(500); //pause mellom hvert kast
+                Thread.sleep(500); //pause mellom hvert kast, kan endres
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
