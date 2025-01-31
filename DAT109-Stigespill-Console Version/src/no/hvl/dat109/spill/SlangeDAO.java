@@ -8,15 +8,26 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
+/**
+ * DAO-klasse for å håndtere databasedrift av Slange-objekter.
+ */
 public class SlangeDAO {
 	
-	private EntityManagerFactory emf;
+	private EntityManagerFactory emf; // Referanse til EntityManagerFactory
 	
+	/**
+	 * Konstruktør som oppretter en EntityManagerFactory for persistenseenheten.
+	 */
 	public SlangeDAO() {
 		emf = Persistence.createEntityManagerFactory("slangespillPersistenceUnit");
 	}
 	
 	
+	/**
+	 * Henter alle slanger fra databasen.
+	 * 
+	 * @return En liste over alle slanger i databasen, eller {@code null} hvis ingen finnes.
+	 */
 	public List<Slange> hentAlleSlanger() {
 		EntityManager em = emf.createEntityManager();
 		
@@ -36,5 +47,4 @@ public class SlangeDAO {
 			em.close();
 		}
 	}
-	
 }

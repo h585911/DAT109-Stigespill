@@ -4,8 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Hovedklasse for å starte stigespillet. Klassen håndterer opprettelse av spillere
+ * og initieringen av spillet.
+ */
 public class StigespillMain{
 
+	/**
+	 * Starter stigespillet. Brukeren velger antall spillere (2-4) og
+	 * oppgit navn for hver spiller. Deretter opprettes spillerne og spillet startes.
+	 * 
+	 * @param args Kommando-linje argumenter (ikke i bruk).
+	 */
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Spiller> spillere = new ArrayList<>();
@@ -33,7 +43,19 @@ public class StigespillMain{
         scanner.close();  
     }
     
+	/**
+	 * Oppretter en spiller med en tilfeldig tilgjengelig farge og tilordner en brikke.
+	 * Henter også stiger og slanger fra databasen
+	 * 
+	 * @param navn Navnet til spilleren.
+	 * @param farger Array med tilgjengelige farger for brikker.
+	 * @param random Random-generator for å velge farge til brikke.
+	 * @param brukteFarger Sett med allerede bruke farger for å unngå duplikater.
+	 * 
+	 * @return En ny spiller med brikke og tilknyttede stiger/slanger.
+	 */
     private static Spiller lagSpiller(String navn) {
+        String farge;
         
         StigeDAO stigedao = new StigeDAO();
         SlangeDAO slangedao = new SlangeDAO();
