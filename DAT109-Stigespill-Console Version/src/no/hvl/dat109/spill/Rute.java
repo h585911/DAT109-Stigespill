@@ -25,8 +25,15 @@ public class Rute {
      * Liste over slanger i spillet.
      */
     private List<Slange> slanger; // Liste over slanger som tilknyttet denne ruten.
-
+    
     /**
+     * Standardkonstruktør for Rute
+     */
+    public Rute() {
+		super();
+	}
+
+	/**
      * Konstruktør for å opprette en rute med angitt nummer, stiger og slanger.
      * 
      * @param rute    Rutenummer
